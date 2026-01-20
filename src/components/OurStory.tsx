@@ -1,50 +1,54 @@
-import teamPhoto from '@/assets/team-photo.jpg';
+import { Scissors } from 'lucide-react';
 
 const OurStory = () => {
   return (
-    <section id="our-story" className="section-padding bg-background">
-      <div className="container-wide mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
-          <div className="relative">
-            <img
-              src={teamPhoto}
-              alt="More Light salon team"
-              className="w-full aspect-[4/5] object-cover image-fade"
-            />
+    <section id="our-story" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Staff Photo */}
+          <div className="w-full lg:w-1/2">
+            <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl shadow-2xl overflow-hidden">
+              <img
+                src="/images/our-story.jpg"
+                alt="Our professional team at More Light Elegance"
+                className="w-full h-full object-cover object-center"
+                style={{ objectPosition: 'center 30%' }}
+                onError={(e) => {
+                  console.error('Failed to load team image');
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+            </div>
           </div>
 
           {/* Content */}
-          <div className="space-y-8">
-            <div>
-              <p className="text-caption text-muted-foreground mb-4">Our Story</p>
-              <h2 className="heading-section">
-                Where craft meets calm
+          <div className="w-full lg:w-1/2">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Our Story
               </h2>
-            </div>
+              <div className="w-20 h-1 bg-gray-900 mb-8"></div>
+              
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p>
+                  Founded in 2010, More Light Elegance emerged from a simple vision: to create a sanctuary where beauty meets precision. What began as a single-chair studio has blossomed into a premier destination for those who appreciate the art of hairdressing.
+                </p>
+                <p>
+                  Our team of master stylists brings together decades of combined experience, having honed their craft in fashion capitals around the world. We believe in the transformative power of a great haircut and the confidence it brings.
+                </p>
+                <p>
+                  At More Light, we're not just stylists—we're artists, confidants, and perfectionists dedicated to bringing out your unique beauty. Every appointment is an opportunity to create something extraordinary.
+                </p>
+              </div>
 
-            <div className="space-y-6 text-body text-foreground/80">
-              <p>
-                More Light was born from a simple belief: that beauty should be an experience of 
-                tranquility, not urgency. In a world that moves too fast, we created a space where 
-                time slows down.
-              </p>
-              <p>
-                Our craft has been refined over fifteen years, drawing from classical techniques 
-                and contemporary innovation. Each stylist brings not just skill, but an understanding 
-                that hair is deeply personal—an extension of identity.
-              </p>
-              <p>
-                We don't follow trends blindly. Instead, we listen, observe, and create looks 
-                that feel authentically you. Every cut, every color, every style is a collaboration 
-                between our expertise and your vision.
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <p className="font-heading text-xl italic text-foreground/70">
-                "Excellence in simplicity"
-              </p>
+              <div className="mt-10 pt-6 border-t border-gray-200">
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
+                >
+                  Meet Our Team
+                </a>
+              </div>
             </div>
           </div>
         </div>

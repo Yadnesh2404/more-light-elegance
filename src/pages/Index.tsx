@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import HeroCarousel from '@/components/HeroCarousel';
 import OurStory from '@/components/OurStory';
-import ServicesShowcase from '@/components/ServicesShowcase';
 import Reviews from '@/components/Reviews';
 import Branches from '@/components/Branches';
 import ContactForm from '@/components/ContactForm';
@@ -13,7 +12,6 @@ const Index = () => {
       <Navbar />
       <HeroCarousel />
       <OurStory />
-      <ServicesShowcase />
       <Reviews />
       <Branches />
       <ContactForm />

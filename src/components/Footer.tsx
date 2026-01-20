@@ -43,8 +43,9 @@ const Footer = () => {
           <div>
             <h4 className="text-caption text-primary-foreground/50 mb-4">Contact</h4>
             <div className="space-y-2 text-sm text-primary-foreground/70">
+              <p>Goregaon: +91 22 2876 5432</p>
+              <p>Andheri: +91 22 2876 5433</p>
               <p>info@morelight.salon</p>
-              <p>+1 (212) 555-0147</p>
             </div>
             
             <div className="flex gap-4 mt-6">

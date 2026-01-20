@@ -1,57 +1,53 @@
-import { MapPin, Phone } from 'lucide-react';
+import BranchCard from './BranchCard';
 
 const branches = [
   {
-    name: 'More Light — Downtown',
-    address: '128 Rose Avenue, Suite 201',
-    city: 'New York, NY 10012',
-    phone: '+1 (212) 555-0147',
+    name: 'Goregaon West',
+    address: 'Orchid Center, Unit 5A, 2nd Floor',
+    city: 'Off Western Express Highway, Goregaon East, Mumbai 400063',
+    phone: '+91 22 2876 5432',
+    hours: [
+      'Monday - Friday: 9:00 AM - 8:00 PM',
+      'Saturday: 10:00 AM - 7:00 PM',
+      'Sunday: 11:00 AM - 6:00 PM'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1595475884563-988bcf86d9c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600334129027-8db0b040b3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    ]
   },
   {
-    name: 'More Light — Uptown',
-    address: '845 Madison Street',
-    city: 'New York, NY 10021',
-    phone: '+1 (212) 555-0293',
+    name: 'Andheri West',
+    address: 'Lokhandwala Complex, 3rd Floor',
+    city: 'SV Road, Andheri West, Mumbai 400053',
+    phone: '+91 22 2876 5433',
+    hours: [
+      'Monday - Friday: 10:00 AM - 9:00 PM',
+      'Saturday: 9:00 AM - 8:00 PM',
+      'Sunday: 10:00 AM - 5:00 PM'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1600334128887-0a8abac5a9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600334128634-3dc3f8cb5895?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    ]
   },
 ];
 
 const Branches = () => {
   return (
-    <section id="branches" className="section-padding bg-secondary">
-      <div className="container-narrow mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-caption text-muted-foreground mb-4">Locations</p>
-          <h2 className="heading-section">Our Branches</h2>
+    <section id="branches" className="py-24 md:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="text-center mb-20">
+          <p className="text-base md:text-lg font-medium text-gray-500 mb-4">OUR LOCATIONS</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light text-gray-900 mb-6">Visit Our Salons</h2>
+          <div className="w-24 h-1 bg-gray-300 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           {branches.map((branch) => (
-            <div
-              key={branch.name}
-              className="bg-background p-8 lg:p-12 border border-border"
-            >
-              <h3 className="heading-card mb-6">{branch.name}</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <MapPin size={18} className="mt-1 text-muted-foreground flex-shrink-0" />
-                  <div className="text-body text-foreground/80">
-                    <p>{branch.address}</p>
-                    <p>{branch.city}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <Phone size={18} className="text-muted-foreground flex-shrink-0" />
-                  <a 
-                    href={`tel:${branch.phone.replace(/\D/g, '')}`}
-                    className="text-body text-foreground/80 hover:text-foreground transition-colors"
-                  >
-                    {branch.phone}
-                  </a>
-                </div>
-              </div>
-            </div>
+            <BranchCard key={branch.name} {...branch} />
           ))}
         </div>
       </div>
