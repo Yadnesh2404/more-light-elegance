@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Scissors, Palette, Sparkles } from 'lucide-react';
-// Premium hero images from Pexels
-const heroStyling = 'https://images.pexels.com/photos/1319461/pexels-photo-1319461.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1200&dpr=2';
-const heroHaircut = 'https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1200&dpr=2';
-const heroColoring = 'https://images.pexels.com/photos/3993248/pexels-photo-3993248.jpeg?auto=compress&cs=tinysrgb&w=2000&h=1200&dpr=2';
+import { ChevronLeft, ChevronRight, Scissors, Palette, Sparkles, HeartPulse } from 'lucide-react';
+
+// Local hero images with correct paths
+const heroStyling = '/images/hero/styling.jpeg';
+const heroHaircut = '/images/hero/haircut.jpeg';
+const heroColoring = '/images/hero/haircolor.jpeg';
+const heroTreatment = '/images/hero/treatment.jpeg';
 
 const slides = [
   {
@@ -30,6 +32,14 @@ const slides = [
     buttonText: 'Book Coloring',
     description: 'From subtle highlights to bold transformations, we bring your vision to life.'
   },
+  {
+    image: heroTreatment,
+    title: 'Treatments',
+    tagline: 'Nourish and restore',
+    icon: <HeartPulse className="w-8 h-8 mb-4 text-gray-900" />,
+    buttonText: 'View Treatments',
+    description: 'Revitalize your hair with our premium treatments designed for repair and nourishment.'
+  }
 ];
 
 const HeroCarousel = () => {
@@ -70,7 +80,12 @@ const HeroCarousel = () => {
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover min-h-screen"
+            onError={(e) => {
+              console.error('Failed to load image:', slide.image);
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
+            loading="eager"
           />
         </div>
       ))}

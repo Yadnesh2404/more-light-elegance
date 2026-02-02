@@ -9,12 +9,12 @@ const OurStory = () => {
           <div className="w-full lg:w-1/2">
             <div className="relative w-full h-[500px] lg:h-[600px] rounded-2xl shadow-2xl overflow-hidden">
               <img
-                src="/images/our-story.jpg"
-                alt="Our professional team at More Light Elegance"
+                src="/images/Founder/founder.jpeg"
+                alt="Founder of More Light Elegance"
                 className="w-full h-full object-cover object-center"
                 style={{ objectPosition: 'center 30%' }}
                 onError={(e) => {
-                  console.error('Failed to load team image');
+                  console.error('Failed to load founder image');
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />

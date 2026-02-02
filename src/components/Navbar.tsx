@@ -12,6 +12,7 @@ const navLinks = [
       { label: 'Haircut', href: '/services/haircut' },
       { label: 'Styling', href: '/services/styling' },
       { label: 'Coloring', href: '/services/coloring' },
+      { label: 'Treatments', href: '/services/treatments' },
     ]
   },
   { label: 'Reviews', href: '#reviews' },
@@ -85,15 +86,20 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg"
     >
       <div className="container-wide mx-auto px-6 md:px-12 lg:px-20">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="font-heading text-2xl tracking-wider text-gray-900 font-bold">
-            More Light Salon
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
+        <div className="flex items-center justify-between h-20 w-full">
+          <div className="flex items-center">
+            {/* Logo */}
+            <Link to="/" className="h-20 w-48 -ml-2 flex items-center">
+              <img 
+                src="/images/logo/logo.svg" 
+                alt="More Light Elegance Logo" 
+                className="h-full w-full object-contain object-left"
+              />
+            </Link>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6 ml-8">
+              {navLinks.map((link) => (
               <div key={link.label} className="relative group">
                 {link.submenu ? (
                   <>
@@ -132,14 +138,27 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center">
+            {/* CTA Button - Desktop */}
+            <div className="hidden md:block ml-6">
+              <a 
+                href="#contact" 
+                className="bg-black hover:bg-gray-800 text-white font-medium py-2 px-6 rounded-full transition-colors duration-300 transform hover:scale-105 whitespace-nowrap"
+                onClick={handleNavigation('#contact')}
+              >
+                Book Now
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
