@@ -12,7 +12,7 @@ const slides = [
     image: heroStyling,
     title: 'Styling',
     tagline: 'Artistry in every strand',
-    icon: <Sparkles className="w-8 h-8 mb-4 text-gray-900" />,
+    icon: <Sparkles className="w-8 h-8 mb-4 text-white" strokeWidth={1.5} />,
     buttonText: 'Book Styling',
     description: 'Experience the perfect blend of creativity and technique with our expert stylists.'
   },
@@ -20,7 +20,7 @@ const slides = [
     image: heroHaircut,
     title: 'Haircut',
     tagline: 'Precision meets elegance',
-    icon: <Scissors className="w-8 h-8 mb-4 text-gray-900" />,
+    icon: <Scissors className="w-8 h-8 mb-4 text-white" strokeWidth={1.5} />,
     buttonText: 'Book Haircut',
     description: 'Get the perfect cut that complements your features and personal style.'
   },
@@ -28,7 +28,7 @@ const slides = [
     image: heroColoring,
     title: 'Coloring',
     tagline: 'Transform with intention',
-    icon: <Palette className="w-8 h-8 mb-4 text-gray-900" />,
+    icon: <Palette className="w-8 h-8 mb-4 text-white" strokeWidth={1.5} />,
     buttonText: 'Book Coloring',
     description: 'From subtle highlights to bold transformations, we bring your vision to life.'
   },
@@ -36,7 +36,7 @@ const slides = [
     image: heroTreatment,
     title: 'Treatments',
     tagline: 'Nourish and restore',
-    icon: <HeartPulse className="w-8 h-8 mb-4 text-gray-900" />,
+    icon: <HeartPulse className="w-8 h-8 mb-4 text-white" strokeWidth={1.5} />,
     buttonText: 'View Treatments',
     description: 'Revitalize your hair with our premium treatments designed for repair and nourishment.'
   }
@@ -72,9 +72,8 @@ const HeroCarousel = () => {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-[800ms] ease-in-out ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-[800ms] ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent z-10" />
           <img
@@ -146,9 +145,8 @@ const HeroCarousel = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-primary-foreground w-8' : 'bg-primary-foreground/50'
-            }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-primary-foreground w-8' : 'bg-primary-foreground/50'
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

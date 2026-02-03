@@ -1,99 +1,95 @@
 import { ServiceLayout } from '@/components/Layout';
-import { ServiceCard, ServiceGrid } from '@/components/ServiceCard';
 import { ServiceHero } from '@/components/ServiceHero';
+import { motion } from 'framer-motion';
 
-// Gallery images with descriptions
+// Gallery images - actual salon work from /images/Haircolor/
 const coloringGallery = [
-  {
-    id: 'balayage-masterpiece',
-    image: '/images/coloring/balayage.jpg',
-    title: 'Balayage',
-    description: 'Hand-painted highlights for a natural, sun-kissed look that grows out beautifully.'
-  },
-  {
-    id: 'vibrant-reds',
-    image: '/images/coloring/vibrant-reds.jpg',
-    title: 'Vibrant Reds',
-    description: 'Rich, dimensional red tones that make a bold and beautiful statement.'
-  },
-  {
-    id: 'ash-blonde',
-    image: '/images/coloring/ash-blonde.jpg',
-    title: 'Ash Blonde',
-    description: 'Cool, sophisticated blonde tones for a modern, edgy look.'
-  },
-  {
-    id: 'bronde-magic',
-    image: '/images/coloring/bronde.jpg',
-    title: 'Bronde',
-    description: 'The perfect blend of brunette and blonde for a natural yet striking effect.'
-  },
-  {
-    id: 'platinum-perfection',
-    image: '/images/coloring/platinum.jpg',
-    title: 'Platinum',
-    description: 'Ultra-light, icy blonde for a high-impact, fashion-forward look.'
-  },
-  {
-    id: 'rich-brunette',
-    image: '/images/coloring/brunette.jpg',
-    title: 'Rich Brunette',
-    description: 'Deep, dimensional browns that enhance your natural beauty.'
-  },
-  {
-    id: 'pastel-dreams',
-    image: '/images/coloring/pastel.jpg',
-    title: 'Pastel Hues',
-    description: 'Soft, ethereal colors for a dreamy, artistic expression.'
-  },
-  {
-    id: 'ombre-effect',
-    image: '/images/coloring/ombre.jpg',
-    title: 'Ombré',
-    description: 'Gradual color transition from dark to light for a subtle, dimensional look.'
-  },
-  {
-    id: 'high-impact-foils',
-    image: '/images/coloring/foils.jpg',
-    title: 'Foil Highlights',
-    description: 'Precise, dimensional highlights for maximum impact and shine.'
-  }
+  '/images/Haircolor/IMG_0674.JPG',
+  '/images/Haircolor/IMG_0778.JPG',
+  '/images/Haircolor/IMG_1474.JPG',
+  '/images/Haircolor/IMG_1536.JPG',
+  '/images/Haircolor/IMG_2708.jpg',
+  '/images/Haircolor/IMG_3317.jpg',
+  '/images/Haircolor/IMG_3479.JPG',
+  '/images/Haircolor/IMG_4482.jpg',
+  '/images/Haircolor/IMG_5218.JPG.jpeg',
 ];
 
 const ColoringPage = () => {
   const heroContent = {
     title: 'Color Gallery',
     description: 'Transformative color services tailored to your unique style',
-    image: '/images/coloring/hero.jpg'
+    image: '/images/hero/haircolor.jpeg'
   };
 
   return (
     <ServiceLayout>
       <ServiceHero {...heroContent} />
-      
-      <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center py-16 px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-serif font-light text-gray-900 mb-4">
-              Our Color Expertise
+
+      <div className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">Portfolio</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-light text-gray-900 mb-6 tracking-tight">
+              Our Color Work
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              From natural-looking highlights to bold fashion colors, our color specialists create looks that inspire.
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-gray-300"></div>
+            </div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+              A showcase of our artistry and precision in hair coloring
             </p>
           </div>
-          
-          <ServiceGrid>
-            {coloringGallery.map((item) => (
-              <ServiceCard
-                key={item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                description={item.description}
-                alt={`${item.title} at More Light Elegance`}
-              />
+
+          {/* Masonry Gallery Grid */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {coloringGallery.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "200px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="break-inside-avoid group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+              >
+                <div className="relative overflow-hidden bg-gray-100">
+                  {/* Image */}
+                  <img
+                    src={image}
+                    alt={`Hair coloring work ${index + 1}`}
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="eager"
+                  />
+
+                  {/* Subtle overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </motion.div>
             ))}
-          </ServiceGrid>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-20 text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-serif font-light text-gray-900 mb-4">
+                Ready for Your Transformation?
+              </h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Book a consultation with our color specialists to discuss your perfect shade
+              </p>
+              <a
+                href="#contact"
+                className="inline-block bg-black hover:bg-gray-800 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Book Consultation
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </ServiceLayout>

@@ -64,7 +64,7 @@ const StylingPage = () => {
   const heroContent = {
     title: 'Styling Gallery',
     description: 'Signature styles for every occasion, from everyday elegance to special events',
-    image: '/images/styling/hero.jpg'
+    image: '/images/hero/styling.jpeg'
   };
 
   return (

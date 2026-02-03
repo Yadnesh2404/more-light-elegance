@@ -3,6 +3,15 @@ import { useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Hero images mapping
+const heroImages: Record<string, string> = {
+  'haircut': '/images/hero/haircut.jpeg',
+  'styling': '/images/hero/styling.jpeg',
+  'coloring': '/images/hero/haircolor.jpeg',
+  'treatments': '/images/hero/treatment.jpeg',
+  'default': '/images/hero/styling.jpeg'
+};
+
 type ServiceLayoutProps = {
   title: string;
   description: string;
@@ -24,7 +33,6 @@ export const ServiceLayout = ({
   title,
   description,
   children,
-  image,
   features,
   priceRange,
   duration,
@@ -36,7 +44,7 @@ export const ServiceLayout = ({
       <div className="relative h-96 overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         <img 
-          src={image} 
+          src={heroImages[title.toLowerCase()] || heroImages.default}
           alt={title}
           className="w-full h-full object-cover"
         />

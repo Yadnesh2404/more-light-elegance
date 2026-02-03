@@ -64,13 +64,13 @@ const TreatmentsPage = () => {
   const heroContent = {
     title: 'Hair Treatments',
     description: 'Specialized treatments to restore, repair, and rejuvenate your hair with professional care and premium products.',
-    image: '/images/treatments/hero.jpg'
+    image: '/images/hero/treatment.jpeg'
   };
 
   return (
     <ServiceLayout>
       <ServiceHero {...heroContent} />
-      
+
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -82,7 +82,7 @@ const TreatmentsPage = () => {
               Experience premium hair care with our specialized treatments designed to restore, protect, and enhance your hair's natural beauty. Each treatment is customized to address your specific hair concerns.
             </p>
           </div>
-          
+
           <ServiceGrid>
             {treatmentGallery.map((item) => (
               <ServiceCard

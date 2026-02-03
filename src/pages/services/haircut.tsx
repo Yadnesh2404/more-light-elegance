@@ -64,13 +64,13 @@ const HaircutPage = () => {
   const heroContent = {
     title: 'Haircut Gallery',
     description: 'Precision cuts designed to enhance your natural beauty',
-    image: '/images/haircut/hero.jpg'
+    image: '/images/hero/haircut.jpeg'
   };
 
   return (
     <ServiceLayout>
       <ServiceHero {...heroContent} />
-      
+
       <div className="bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-16 px-4 sm:px-6 lg:px-8">
@@ -81,7 +81,7 @@ const HaircutPage = () => {
               Each cut is a masterpiece, crafted by our expert stylists to bring out your best features.
             </p>
           </div>
-          
+
           <ServiceGrid>
             {haircutGallery.map((item) => (
               <ServiceCard

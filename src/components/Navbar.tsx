@@ -83,8 +83,7 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg"
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg">
       <div className="container-wide mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-20 w-full">
           <div className="flex items-center">
@@ -100,8 +99,8 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6 ml-8">
               {navLinks.map((link) => (
-              <div key={link.label} className="relative group">
-                {link.submenu ? (
+                <div key={link.label} className="relative group">
+                  {link.submenu ? (
                   <>
                     <button
                       onClick={() => toggleSubmenu(link.label)}
@@ -133,11 +132,12 @@ const Navbar = () => {
                   >
                     {link.label}
                   </a>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-
+          
           <div className="flex items-center">
             {/* CTA Button - Desktop */}
             <div className="hidden md:block ml-6">

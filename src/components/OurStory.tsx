@@ -1,4 +1,3 @@
-import { Scissors } from 'lucide-react';
 
 const OurStory = () => {
   return (
@@ -28,7 +27,7 @@ const OurStory = () => {
                 Our Story
               </h2>
               <div className="w-20 h-1 bg-gray-900 mb-8"></div>
-              
+
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>
                   Founded in 2010, More Light Elegance emerged from a simple vision: to create a sanctuary where beauty meets precision. What began as a single-chair studio has blossomed into a premier destination for those who appreciate the art of hairdressing.
@@ -42,8 +41,8 @@ const OurStory = () => {
               </div>
 
               <div className="mt-10 pt-6 border-t border-gray-200">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="inline-flex items-center px-8 py-3 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
                 >
                   Meet Our Team
