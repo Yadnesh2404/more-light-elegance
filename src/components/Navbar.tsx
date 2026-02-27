@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Our Story', href: '#our-story' },
-  { 
-    label: 'Services', 
+  {
+    label: 'Services',
     href: '/services',
     submenu: [
       { label: 'Haircut', href: '/services/haircut' },
-      { label: 'Styling', href: '/services/styling' },
       { label: 'Coloring', href: '/services/coloring' },
       { label: 'Treatments', href: '/services/treatments' },
     ]
@@ -51,7 +51,7 @@ const Navbar = () => {
     // Close mobile menu
     setIsMobileMenuOpen(false);
     setOpenSubmenu(null);
-    
+
     if (href.startsWith('#')) {
       const sectionId = href.substring(1);
       if (location.pathname === '/') {
@@ -89,60 +89,60 @@ const Navbar = () => {
           <div className="flex items-center">
             {/* Logo */}
             <Link to="/" className="h-20 w-48 -ml-2 flex items-center">
-              <img 
-                src="/images/logo/logo.svg" 
-                alt="More Light Elegance Logo" 
+              <img
+                src="/images/logo/logo.svg"
+                alt="More Light Elegance Logo"
                 className="h-full w-full object-contain object-left"
               />
             </Link>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6 ml-8">
               {navLinks.map((link) => (
                 <div key={link.label} className="relative group">
                   {link.submenu ? (
-                  <>
-                    <button
-                      onClick={() => toggleSubmenu(link.label)}
-                      className="flex items-center text-small font-medium text-gray-700 hover:text-black transition-colors px-3 py-2 rounded-md hover:bg-gray-100"
+                    <>
+                      <button
+                        onClick={() => toggleSubmenu(link.label)}
+                        className="flex items-center text-small font-medium text-gray-700 hover:text-black transition-colors px-3 py-2 rounded-md hover:bg-gray-100"
+                      >
+                        {link.label}
+                        <ChevronDown className={`w-4 h-4 ml-1 transition-transform ${openSubmenu === link.label ? 'rotate-180' : ''}`} />
+                      </button>
+                      <div
+                        className={`absolute left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50 transition-all duration-200 ${openSubmenu === link.label ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+                      >
+                        {link.submenu.map((item) => (
+                          <a
+                            key={item.label}
+                            href={item.href}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={handleNavigation(item.href)}
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-small font-medium text-gray-700 hover:text-black transition-colors px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer"
+                      onClick={handleNavigation(link.href)}
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 ml-1 transition-transform ${openSubmenu === link.label ? 'rotate-180' : ''}`} />
-                    </button>
-                    <div 
-                      className={`absolute left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50 transition-all duration-200 ${openSubmenu === link.label ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-                    >
-                      {link.submenu.map((item) => (
-                        <a
-                          key={item.label}
-                          href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                          onClick={handleNavigation(item.href)}
-                        >
-                          {item.label}
-                        </a>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <a
-                    href={link.href}
-                    className="text-small font-medium text-gray-700 hover:text-black transition-colors px-3 py-2 rounded-md hover:bg-gray-100 cursor-pointer"
-                    onClick={handleNavigation(link.href)}
-                  >
-                    {link.label}
-                  </a>
+                    </a>
                   )}
                 </div>
               ))}
             </div>
           </div>
-          
+
           <div className="flex items-center">
             {/* CTA Button - Desktop */}
             <div className="hidden md:block ml-6">
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="bg-black hover:bg-gray-800 text-white font-medium py-2 px-6 rounded-full transition-colors duration-300 transform hover:scale-105 whitespace-nowrap"
                 onClick={handleNavigation('#contact')}
               >
@@ -164,9 +164,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-background border-b border-border transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
+        className={`md:hidden absolute top-full left-0 right-0 bg-background border-b border-border transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}
       >
         <div className="px-6 py-4 space-y-1">
           {navLinks.map((link) => (

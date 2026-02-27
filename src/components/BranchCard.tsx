@@ -14,7 +14,7 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
@@ -28,13 +28,13 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
       {/* Image Carousel */}
-      <div className="relative h-80 md:h-96 overflow-hidden">
+      <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
         <img
           src={images[currentImageIndex]}
           alt={`${name} - ${currentImageIndex + 1}`}
           className="w-full h-full object-cover transition-opacity duration-500"
         />
-        
+
         {/* Navigation Arrows */}
         {images.length > 1 && (
           <>
@@ -54,7 +54,7 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
             </button>
           </>
         )}
-        
+
         {/* Dots Indicator */}
         {images.length > 1 && (
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
@@ -62,9 +62,8 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                }`}
+                className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                  }`}
                 aria-label={`Go to image ${index + 1}`}
               />
             ))}
@@ -73,9 +72,9 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
       </div>
 
       {/* Branch Details */}
-      <div className="p-8">
+      <div className="p-5 sm:p-8">
         <h3 className="text-2xl md:text-3xl font-serif font-light text-gray-900 mb-6">{name}</h3>
-        
+
         <div className="space-y-4">
           <div className="flex items-start gap-3">
             <MapPin size={18} className="mt-0.5 text-gray-500 flex-shrink-0" />
@@ -84,17 +83,17 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
               <p className="text-base text-gray-600">{city}</p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3">
             <Phone size={20} className="text-gray-500 flex-shrink-0" />
-            <a 
+            <a
               href={`tel:${phone.replace(/\D/g, '')}`}
               className="text-lg text-gray-800 hover:text-gray-900 transition-colors"
             >
               {phone}
             </a>
           </div>
-          
+
           <div className="flex items-start gap-3">
             <Clock size={18} className="mt-0.5 text-gray-500 flex-shrink-0" />
             <div>
@@ -107,10 +106,10 @@ const BranchCard = ({ name, address, city, phone, hours, images }: BranchCardPro
             </div>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-6 border-t border-gray-100">
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="block w-full py-3 px-6 border border-gray-300 rounded-md text-lg text-center text-gray-700 hover:bg-gray-50 transition-colors"
             onClick={(e) => {
               e.preventDefault();

@@ -43,25 +43,25 @@ const testimonials = [
   {
     id: 1,
     text: "A sanctuary in the city. The attention to detail and calm atmosphere made my experience truly special. I've never felt more understood by a stylist.",
-    name: 'Alexandra M.',
+    name: 'Priya Sharma',
     role: 'Regular Client',
   },
   {
     id: 2,
     text: "Finally found a salon that values quality over speed. My color has never looked more natural. The team takes their craft seriously.",
-    name: 'Jessica L.',
+    name: 'Neha Kulkarni',
     role: 'Color Client',
   },
   {
     id: 3,
     text: "The most relaxing haircut I've ever had. No rush, no pressure—just genuine care and exceptional results. More Light has set a new standard for me.",
-    name: 'Sarah K.',
+    name: 'Aishwarya Patil',
     role: 'First-time Client',
   },
   {
     id: 4,
     text: "Exceptional service from start to finish. The stylists are true artists who listen and deliver beyond expectations every time.",
-    name: 'Michael T.',
+    name: 'Rohan Mehta',
     role: 'Loyal Customer',
   },
 ];
@@ -111,9 +111,9 @@ const TestimonialCarousel = () => {
               {/* Glassmorphism card with gradient border */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-white to-gray-50 rounded-3xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <div className="relative bg-white/80 backdrop-blur-sm p-10 md:p-12 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 border border-gray-100 group-hover:border-gray-200">
+              <div className="relative bg-white/90 backdrop-blur-sm p-7 sm:p-10 md:p-12 rounded-3xl shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-gray-200">
                 {/* Decorative quote icon - top left */}
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl flex items-center justify-center shadow-xl transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
                   <Quote className="w-8 h-8 text-white" strokeWidth={1.5} />
                 </div>
 
@@ -133,7 +133,7 @@ const TestimonialCarousel = () => {
                 </div>
 
                 {/* Testimonial text with elegant typography */}
-                <p className="text-gray-800 text-xl md:text-2xl leading-relaxed mb-10 font-light text-center italic tracking-wide">
+                <p className="text-gray-700 text-base sm:text-xl md:text-2xl leading-relaxed mb-8 sm:mb-10 font-light text-center italic tracking-wide">
                   "{testimonial.text}"
                 </p>
 

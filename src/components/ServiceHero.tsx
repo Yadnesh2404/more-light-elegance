@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
 
 interface ServiceHeroProps {
   title: string;
@@ -19,7 +21,18 @@ export const ServiceHero = ({ title, description, image }: ServiceHeroProps) => 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-black/90" />
       </div>
-      
+
+      {/* Back button */}
+      <div className="absolute top-24 left-6 sm:left-10 z-20">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors duration-200"
+        >
+          <ChevronLeft className="w-4 h-4" strokeWidth={2} />
+          Back to Home
+        </Link>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 text-white">
         <motion.div
@@ -41,7 +54,7 @@ export const ServiceHero = ({ title, description, image }: ServiceHeroProps) => 
           )}
         </motion.div>
       </div>
-      
+
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <motion.div
@@ -53,13 +66,12 @@ export const ServiceHero = ({ title, description, image }: ServiceHeroProps) => 
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              d="M19 9l-7 7-7-7"
             />
           </svg>
         </motion.div>

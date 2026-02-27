@@ -24,9 +24,7 @@ export const Layout = ({ children, className = '' }: LayoutProps) => {
 export const ServiceLayout = ({ children, className = '' }: LayoutProps) => {
   return (
     <Layout className={className}>
-      <div className="container mx-auto px-4 py-12">
-        {children}
-      </div>
+      {children}
     </Layout>
   );
 };
