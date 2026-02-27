@@ -4,11 +4,12 @@ import { motion } from 'framer-motion';
 
 // Gallery images — actual salon haircut work
 const haircutGallery = [
-  '/images/Haircut/30 Trendy Mid-Length Layered Haircuts & Hairstyles.jfif',
-  '/images/Haircut/Devs ladies salon® (@devs_ladiessalon) _ Instagram.jfif',
-  '/images/Haircut/Hair stylist Photos - Download Free High-Quality Pictures _ Freepik.jfif',
-  '/images/Haircut/Vrouw laat haar knippen in de schoonheidssalon _ Gratis Foto.jfif',
-  '/images/Haircut/✨ Voluminous Layered Curls for a Glamorous Look ✨.jfif',
+  '/images/Haircut/WhatsApp Image 2026-02-27 at 2.50.41 PM.jpeg',
+  '/images/Haircut/WhatsApp Image 2026-02-27 at 2.50.41 PM (1).jpeg',
+  '/images/Haircut/WhatsApp Image 2026-02-27 at 2.50.41 PM (2).jpeg',
+  '/images/Haircut/WhatsApp Image 2026-02-27 at 2.50.42 PM.jpeg',
+  '/images/Haircut/WhatsApp Image 2026-02-27 at 2.50.42 PM (1).jpeg',
+  '/images/Haircut/WhatsApp Image 2026-02-27 at 2.50.42 PM (2).jpeg',
 ];
 
 const HaircutPage = () => {
@@ -60,14 +61,13 @@ const HaircutPage = () => {
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="eager"
                   />
-                  {/* Subtle overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* CTA Section */}
+          {/* CTA */}
           <div className="mt-20 text-center">
             <div className="max-w-2xl mx-auto">
               <h3 className="text-2xl md:text-3xl font-serif font-light text-gray-900 mb-4">

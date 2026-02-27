@@ -1,69 +1,23 @@
 import { ServiceLayout } from '@/components/Layout';
-import { ServiceCard, ServiceGrid } from '@/components/ServiceCard';
 import { ServiceHero } from '@/components/ServiceHero';
+import { motion } from 'framer-motion';
 
-// Gallery images with descriptions
-const treatmentGallery = [
-  {
-    id: 'keratin-treatment',
-    image: '/images/treatments/keratin.jpg',
-    title: 'Keratin Treatment',
-    description: 'Smooths and adds shine while reducing frizz for up to 3 months.'
-  },
-  {
-    id: 'scalp-therapy',
-    image: '/images/treatments/scalp-therapy.jpg',
-    title: 'Scalp Therapy',
-    description: 'Nourishing treatment to restore balance and promote healthy hair growth.'
-  },
-  {
-    id: 'deep-conditioning',
-    image: '/images/treatments/deep-conditioning.jpg',
-    title: 'Deep Conditioning',
-    description: 'Intensive moisture treatment to repair and revitalize damaged hair.'
-  },
-  {
-    id: 'olaplex-treatment',
-    image: '/images/treatments/olaplex.jpg',
-    title: 'Olaplex Treatment',
-    description: 'Rebuilds broken bonds and strengthens hair from within.'
-  },
-  {
-    id: 'hair-botox',
-    image: '/images/treatments/hair-botox.jpg',
-    title: 'Hair Botox',
-    description: 'Deep conditioning treatment that repairs and fills in damaged areas.'
-  },
-  {
-    id: 'protein-treatment',
-    image: '/images/treatments/protein.jpg',
-    title: 'Protein Treatment',
-    description: 'Restores strength and elasticity to weak, brittle hair.'
-  },
-  {
-    id: 'moisture-treatment',
-    image: '/images/treatments/moisture.jpg',
-    title: 'Moisture Treatment',
-    description: 'Hydrates and revives dry, dehydrated hair.'
-  },
-  {
-    id: 'color-protection',
-    image: '/images/treatments/color-protection.jpg',
-    title: 'Color Protection',
-    description: 'Specialized treatment to extend the life of your color.'
-  },
-  {
-    id: 'detox-treatment',
-    image: '/images/treatments/detox.jpg',
-    title: 'Detox Treatment',
-    description: 'Removes product buildup and impurities for healthier hair.'
-  }
+// Gallery images — actual salon treatment work
+const treatmentsGallery = [
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.50.42 PM (3).jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.50.43 PM.jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.51.15 PM.jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.54.08 PM.jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.54.09 PM.jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.54.09 PM (1).jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.54.10 PM.jpeg',
+  '/images/Treatments/WhatsApp Image 2026-02-27 at 2.54.10 PM (1).jpeg',
 ];
 
 const TreatmentsPage = () => {
   const heroContent = {
-    title: 'Hair Treatments',
-    description: 'Specialized treatments to restore, repair, and rejuvenate your hair with professional care and premium products.',
+    title: 'Treatments Gallery',
+    description: 'Specialized care to restore, repair and rejuvenate your hair',
     image: '/images/hero/treatment.jpeg'
   };
 
@@ -71,30 +25,67 @@ const TreatmentsPage = () => {
     <ServiceLayout>
       <ServiceHero {...heroContent} />
 
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-light text-gray-900 mb-6">
-              Our Signature Treatments
+      <div className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">Portfolio</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-light text-gray-900 mb-6 tracking-tight">
+              Our Treatment Work
             </h2>
-            <div className="w-24 h-px bg-gray-300 mx-auto mb-6"></div>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Experience premium hair care with our specialized treatments designed to restore, protect, and enhance your hair's natural beauty. Each treatment is customized to address your specific hair concerns.
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-gray-300"></div>
+              <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-gray-300"></div>
+            </div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+              A showcase of our nourishing and restorative hair treatment results
             </p>
           </div>
 
-          <ServiceGrid>
-            {treatmentGallery.map((item) => (
-              <ServiceCard
-                key={item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                description={item.description}
-                alt={`${item.title} at More Light Elegance`}
-              />
+          {/* Masonry Gallery Grid */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {treatmentsGallery.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '200px' }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="break-inside-avoid group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
+              >
+                <div className="relative overflow-hidden bg-gray-100">
+                  <img
+                    src={image}
+                    alt={`Treatment work ${index + 1}`}
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </motion.div>
             ))}
-          </ServiceGrid>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-20 text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-serif font-light text-gray-900 mb-4">
+                Ready to Restore Your Hair?
+              </h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Book a consultation with our treatment specialists to find your ideal care routine
+              </p>
+              <a
+                href="#contact"
+                className="inline-block bg-black hover:bg-gray-800 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Book Consultation
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </ServiceLayout>

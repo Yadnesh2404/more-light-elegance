@@ -13,9 +13,7 @@ const branches = [
       'Sunday: 11:00 AM - 6:00 PM'
     ],
     images: [
-      'https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1595475884563-988bcf86d9c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600334129027-8db0b040b3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      '/images/Goregaon.jpeg'
     ]
   },
   {
@@ -29,9 +27,7 @@ const branches = [
       'Sunday: 10:00 AM - 5:00 PM'
     ],
     images: [
-      'https://images.unsplash.com/photo-1600334128887-0a8abac5a9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600334128634-3dc3f8cb5895?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      '/images/Andheri.jpeg'
     ]
   },
 ];

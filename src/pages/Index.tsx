@@ -5,6 +5,7 @@ import Reviews from '@/components/Reviews';
 import Branches from '@/components/Branches';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Branches />
       <ContactForm />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 };
