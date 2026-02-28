@@ -39,10 +39,23 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Thank you for your message. We will be in touch soon.');
-    setFormData({ name: '', phone: '', email: '', message: '' });
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyXbIhG13BRHDVBPqSAqhiab1jpQOvu9JvAa7XSjSRFlImF8xErCRs3YZ-hA32U2Nm7/exec",
+        {
+          method: "POST",
+          mode: "no-cors", // prevents preflight — response is opaque but request reaches the Sheet
+          body: JSON.stringify(formData),
+        }
+      );
+      // no-cors gives an opaque response (unreadable), but no thrown error means the data was sent
+      toast.success("Thank you for your message. We will be in touch soon.");
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+    }
   };
 
   return (
