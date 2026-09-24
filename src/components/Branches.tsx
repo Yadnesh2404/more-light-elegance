@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BranchCard from './BranchCard';
 
 const branches = [
@@ -30,17 +32,39 @@ const branches = [
       '/images/Andheri.jpeg'
     ]
   },
+  {
+    name: 'Malad West',
+    address: 'Pratap Oasis, 2, Malad, Evershine Nagar',
+    city: 'Malad West, Mumbai, Maharashtra 400064',
+    phone: '+91 98343 10201',
+    hours: [
+      'Monday - Sunday: 10:00 AM - 10:00 PM'
+    ],
+    images: [
+      '/images/malad.jpeg'
+    ]
+  },
 ];
 
 const Branches = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % branches.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + branches.length) % branches.length);
+  };
+
   return (
-    <section id="branches" className="py-24 md:py-32 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="branches" className="py-16 md:py-24 lg:py-32 bg-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Animated header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.p
-            className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium mb-4"
+            className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-500 font-medium mb-3 md:mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -49,7 +73,7 @@ const Branches = () => {
             Our Locations
           </motion.p>
           <motion.h2
-            className="font-serif text-4xl md:text-5xl font-light text-gray-900 mb-6"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 md:mb-6"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -66,19 +90,58 @@ const Branches = () => {
           />
         </div>
 
-        {/* Cards staggered */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
-          {branches.map((branch, i) => (
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all -translate-x-1/2 sm:translate-x-0 sm:left-2 md:left-4"
+            aria-label="Previous branch"
+          >
+            <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all translate-x-1/2 sm:translate-x-0 sm:right-2 md:right-4"
+            aria-label="Next branch"
+          >
+            <ChevronRight size={20} className="sm:w-6 sm:h-6" />
+          </button>
+
+          {/* Carousel Track */}
+          <div className="overflow-hidden mx-8 sm:mx-12 md:mx-16">
             <motion.div
-              key={branch.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: i * 0.15 }}
+              className="flex"
+              animate={{ x: `-${currentIndex * 100}%` }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <BranchCard {...branch} />
+              {branches.map((branch, i) => (
+                <motion.div
+                  key={branch.name}
+                  className="w-full flex-shrink-0 px-2 sm:px-4 md:px-8"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  <BranchCard {...branch} />
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-6 md:mt-8">
+            {branches.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-gray-800 w-6 sm:w-8' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to branch ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
       </div>
