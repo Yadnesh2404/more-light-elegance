@@ -14,6 +14,7 @@ const contactInfo = [
     lines: [
       'Shop No 6, Nehaj Height, Plot 34, Road No. 4, Jawahar Nagar, Goregaon West, Mumbai 400104',
       'Shop No. 12, Suvidha Square Building, Amboli Naka, Swami Vivekanand Rd, Andheri West, Mumbai 400058',
+      'Pratap Oasis, 2, Malad, Evershine Nagar, Malad West, Mumbai 400064',
     ]
   },
   {
@@ -26,6 +27,7 @@ const contactInfo = [
     links: [
       { href: 'tel:+919152789081', text: 'Goregaon: +91 91527 89081' },
       { href: 'tel:+919372647545', text: 'Andheri: +91 93726 47545' },
+      { href: 'tel:+919834310201', text: 'Malad: +91 98343 10201' },
     ]
   }
 ];

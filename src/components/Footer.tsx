@@ -85,6 +85,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-white/50">
               <p>Shop No 6, Nehaj Height, Goregaon West · +91 91527 89081</p>
               <p>Shop No. 12, Suvidha Square, Andheri West · +91 93726 47545</p>
+              <p>Pratap Oasis, Malad, Evershine Nagar · +91 98343 10201</p>
               <p>info@morelight.salon</p>
             </div>
 
